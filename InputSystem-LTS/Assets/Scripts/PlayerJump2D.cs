@@ -1,12 +1,17 @@
 using UnityEditor.EditorTools;
 using UnityEngine;
+using UnityEngine.Android;
 using UnityEngine.InputSystem;
 
 [RequireComponent(typeof(Rigidbody2D))]
+[RequireComponent(typeof(Animator))]
+[RequireComponent(typeof(SpriteRenderer))]
 public class PlayerJump2D : MonoBehaviour
 {
     [Header("Refs")]
     [SerializeField] private Rigidbody2D rb;
+    [SerializeField] private Animator anim;
+    [SerializeField] private SpriteRenderer sr;
     [SerializeField] private LayerMask groundLayer = 0;
     [SerializeField] private Transform groundCheck;
     [SerializeField] private float grounCheckRadius = 0.15f;
@@ -33,6 +38,7 @@ public class PlayerJump2D : MonoBehaviour
 
     private bool jumpPressed;
     private bool jumpHeld;
+    private bool was_jumping = false;
 
     private bool second_jump_available = false;
 
@@ -63,6 +69,8 @@ public class PlayerJump2D : MonoBehaviour
     void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
+        anim = GetComponent<Animator>();
+        sr = GetComponent<SpriteRenderer>();
     }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -78,6 +86,11 @@ public class PlayerJump2D : MonoBehaviour
         {
             coyoteTimeAux = coyoteTime;
             second_jump_available = false;
+            if (was_jumping && rb.linearVelocityY <= 0)
+            {
+                anim.SetTrigger("Land");
+                was_jumping = false;
+            }
         }
         else
         {
@@ -101,13 +114,15 @@ public class PlayerJump2D : MonoBehaviour
         {
             jump();
             second_jump_available = true;
+            anim.SetTrigger("Jump");
+            was_jumping = true;
+            jumpBufferTimeAux = 0;
+            coyoteTimeAux = 0;
         }
         else if (jumpHeld)
         {
             rb.linearVelocityY += jumpForceHeld * Time.deltaTime;
             maxTimeAux -= Time.deltaTime;
-
-            Debug.Log("jumpHeld");
 
             if (maxTimeAux <= 0)
             {
@@ -117,10 +132,21 @@ public class PlayerJump2D : MonoBehaviour
         else if (second_jump_available && jumpBufferTimeAux > 0 && coyoteTimeAux < 0)
         {
             rb.linearVelocityY = jumpForceDouble;
+            anim.SetTrigger("Jump");
             second_jump_available = false;
+            jumpBufferTimeAux = 0;
         }
 
         rb.linearVelocityX = MovementInput.x * Velocity;
+        anim.SetFloat("Speed", Mathf.Abs(MovementInput.x));
+        if (MovementInput.x > 0)
+        {
+            sr.flipX = false;
+        }
+        else if (MovementInput.x < 0)
+        {
+            sr.flipX = true;
+        }
     }
 
     void jump()
