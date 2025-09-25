@@ -36,6 +36,7 @@ public class Enemy_Behaviour : MonoBehaviour, IDamageable
 
         if (player != null)
         {
+            Debug.Log("Damaging player");
             player.TakeDamage(damage);
         }
     }

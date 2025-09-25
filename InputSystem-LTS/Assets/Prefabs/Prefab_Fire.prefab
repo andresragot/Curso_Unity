@@ -131,8 +131,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rb: {fileID: 0}
   speed: 1000
-  alive_time: 5
+  alive_time: 2
   damage: 50
+  particles: {fileID: 2902373352603505109, guid: 2505ddae41de24f36b9ba83e67276d11, type: 3}
+  parent: {fileID: 0}
 --- !u!61 &580944306565192685
 BoxCollider2D:
   m_ObjectHideFlags: 0

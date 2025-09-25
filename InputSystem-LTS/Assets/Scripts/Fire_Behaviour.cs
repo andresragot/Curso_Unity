@@ -14,6 +14,10 @@ public class Fire_Behaviour : MonoBehaviour
     [SerializeField] private float alive_time = 5f;
     [SerializeField] private int damage = 50;
 
+    [SerializeField] private GameObject particles;
+
+    public Character_Attack parent;
+
     void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -37,7 +41,10 @@ public class Fire_Behaviour : MonoBehaviour
 
     void OnDestroy()
     {
+        parent.BrokenBullet();
         Debug.Log("He desaparecido!");
+
+        Instantiate(particles, transform.position, Quaternion.identity);
     }
 
     void OnTriggerEnter2D(Collider2D collider)
