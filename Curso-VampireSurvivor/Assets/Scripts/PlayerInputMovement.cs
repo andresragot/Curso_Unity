@@ -18,7 +18,7 @@ public class PlayerInputMovement : MonoBehaviour
     private RectTransform canvasRect;
     private Camera uiCamera;
     private bool isHeld;
-    private Vector2 input;
+    public Vector2 input;
     private Vector2 first_input;
 
     public void OnTouchButton(InputAction.CallbackContext ctx)
