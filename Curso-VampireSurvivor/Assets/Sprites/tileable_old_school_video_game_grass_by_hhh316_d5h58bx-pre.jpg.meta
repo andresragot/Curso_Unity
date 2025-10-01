@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 6b604996f23a8497c86ea82023a833a4
+guid: c6740c7e8f2f44cc4a4e85de3b582f13
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -3605285236067844410
-    second: Goomba_0
+      213: 6215191985943675164
+    second: tileable_old_school_video_game_grass_by_hhh316_d5h58bx-pre_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -46,7 +46,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -75,7 +75,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -126,13 +126,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Goomba_0
+      name: tileable_old_school_video_game_grass_by_hhh316_d5h58bx-pre_0
       rect:
         serializedVersion: 2
-        x: 1
-        y: 22
-        width: 16
-        height: 16
+        x: 0
+        y: 0
+        width: 894
+        height: 894
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -141,52 +141,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 6ce373eed2477fdc0800000000000000
-      internalID: -3605285236067844410
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Goomba_1
-      rect:
-        serializedVersion: 2
-        x: 18
-        y: 22
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: f607abf3e6e884c4baf21aea2476ebb4
-      internalID: -414743144
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Goomba_2
-      rect:
-        serializedVersion: 2
-        x: 35
-        y: 22
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 57a093f4d64f84c6bae688ca53072924
-      internalID: 144273582
+      spriteID: c1107058e2cc04650800000000000000
+      internalID: 6215191985943675164
       vertices: []
       indices: 
       edges: []
@@ -195,7 +151,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: a40cefe48afe44b80b8c0322a420525b
+    spriteID: 5e97eb03825dee720800000000000000
     internalID: 0
     vertices: []
     indices: 
@@ -205,9 +161,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Goomba_0: -3605285236067844410
-      Goomba_1: -414743144
-      Goomba_2: 144273582
+      tileable_old_school_video_game_grass_by_hhh316_d5h58bx-pre_0: 6215191985943675164
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
