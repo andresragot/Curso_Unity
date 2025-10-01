@@ -8,6 +8,8 @@ public class EnemyHealth : MonoBehaviour, IDamageable
 
     [SerializeField] private int damage = 5;
 
+    private Poolable poolable;
+
     public int Health
     {
         get
@@ -25,11 +27,27 @@ public class EnemyHealth : MonoBehaviour, IDamageable
     public void TakeDamage (int amount)
     {
         Health -= amount;
+
+        if (Health <= 0)
+        {
+            if (poolable != null) poolable.Despawn();
+            else gameObject.SetActive(false);
+        }
     }
 
     public void RecoverDamage (int amount)
     {
+        Health += amount;
+    }
 
+    void Awake()
+    {
+        poolable = GetComponent<Poolable>();
+    }
+
+    void OnEnable()
+    {
+        RecoverDamage(_maxHealth);
     }
 
     private void OnCollisionStay2D(Collision2D collision)

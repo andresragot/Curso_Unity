@@ -49,10 +49,7 @@ public class EnemyFollower2D : MonoBehaviour
     {
         currentSpeed = 0f;
         if (rb != null) rb.linearVelocity = Vector2.zero;
-
-        target = GameObject.FindGameObjectWithTag("Player").transform;
     }
-
 
     void FixedUpdate()
     {
@@ -120,5 +117,10 @@ public class EnemyFollower2D : MonoBehaviour
         Vector2 newVel = Vector2.Lerp(rb.linearVelocity, desiredVelocity, k);
 
         rb.linearVelocity = newVel;
+    }
+
+    public void Init(Transform transform)
+    {
+        target = transform;
     }
 }
