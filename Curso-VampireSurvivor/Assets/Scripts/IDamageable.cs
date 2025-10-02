@@ -1,8 +1,8 @@
 
 public interface IDamageable
 {
-    int Health { get; set; }
+    float Health { get; set; }
 
-    public void TakeDamage(int amount);
-    public void RecoverDamage (int amount);
+    public void TakeDamage(Damage dmg);
+    public void RecoverDamage (float amount);
 }

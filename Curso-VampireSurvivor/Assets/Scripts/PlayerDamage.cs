@@ -3,10 +3,10 @@ using UnityEngine;
 public class PlayerDamage : MonoBehaviour, IDamageable
 {
 
-    [SerializeField] int _health = 1000;
-    [SerializeField] int _maxHealth = 1000;
+    [SerializeField] float _health = 1000;
+    [SerializeField] float _maxHealth = 1000;
 
-    public int Health
+    public float Health
     {
         get
         {
@@ -15,18 +15,22 @@ public class PlayerDamage : MonoBehaviour, IDamageable
 
         set
         {
-            if (value > _maxHealth || 0 < value)
+            if (value <= _maxHealth || 0.0f <= value)
                 _health = value;
+            else if (0.0f > value)
+                _health = 0.0f;
+            else if (_maxHealth < value)
+                _health = _maxHealth;
         }
 
     }
 
-    public void TakeDamage (int amount)
+    public void TakeDamage (Damage dmg)
     {
-        Health -= amount;
+        Health -= dmg.amount;
     }
 
-    public void RecoverDamage (int amount)
+    public void RecoverDamage (float amount)
     {
         Health += amount;
     }

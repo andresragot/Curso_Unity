@@ -3,39 +3,43 @@ using UnityEngine;
 public class EnemyHealth : MonoBehaviour, IDamageable
 {
 
-    [SerializeField] private int _health = 100;
-    [SerializeField] private int _maxHealth = 100;
+    [SerializeField] private float _health = 100f;
+    [SerializeField] private float _maxHealth = 100f;
 
-    [SerializeField] private int damage = 5;
+    [SerializeField] private float damage = 5;
 
     private Poolable poolable;
 
-    public int Health
+    public float Health
     {
         get
-        {
+        {   
             return _health;
         }
 
         set
         {
-            if (value > _maxHealth || 0 < value)
+            if (value <= _maxHealth || 0.0f <= value)
                 _health = value;
+            else if (0.0f > value)
+                _health = 0.0f;
+            else if (_maxHealth < value)
+                _health = _maxHealth;
         }
     }
 
-    public void TakeDamage (int amount)
+    public void TakeDamage (Damage dmg)
     {
-        Health -= amount;
+        Health -= dmg.amount;
 
-        if (Health <= 0)
+        if (Health <= 0.0f)
         {
             if (poolable != null) poolable.Despawn();
             else gameObject.SetActive(false);
         }
     }
 
-    public void RecoverDamage (int amount)
+    public void RecoverDamage (float amount)
     {
         Health += amount;
     }
@@ -57,7 +61,8 @@ public class EnemyHealth : MonoBehaviour, IDamageable
             var damageable = collision.gameObject.GetComponent<IDamageable>();
             if (damageable != null)
             {
-                damageable.TakeDamage(damage);
+                Damage dmg = new Damage (damage);
+                damageable.TakeDamage(dmg);
             }
         }
     }
