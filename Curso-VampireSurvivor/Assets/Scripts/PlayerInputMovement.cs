@@ -23,7 +23,7 @@ public class PlayerInputMovement : MonoBehaviour
 
     public void OnTouchButton(InputAction.CallbackContext ctx)
     {
-        if (ctx.started)
+        if (ctx.started && Time.timeScale != 0f)
         {
             isHeld = true;
             input = Vector2.zero;
@@ -44,7 +44,7 @@ public class PlayerInputMovement : MonoBehaviour
 
             Debug.Log("Screen is pressed");
         }
-        else if (ctx.canceled)
+        else if (ctx.canceled && Time.timeScale != 0f)
         {
             ReleaseStick();
         }
@@ -52,7 +52,7 @@ public class PlayerInputMovement : MonoBehaviour
 
     public void OnDeltaTouch(InputAction.CallbackContext ctx)
     {
-        if (isHeld)
+        if (isHeld && Time.timeScale != 0f)
         {
             input = ctx.ReadValue<Vector2>();
 
@@ -69,6 +69,14 @@ public class PlayerInputMovement : MonoBehaviour
         {
             if (bg) bg.gameObject.SetActive(false);
             if (handle) handle.gameObject.SetActive(false);
+        }
+    }
+
+    private void Update()
+    {
+        if (Time.timeScale == 0f)
+        {
+            ReleaseStick();
         }
     }
 
