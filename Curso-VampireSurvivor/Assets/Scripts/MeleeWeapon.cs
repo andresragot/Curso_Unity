@@ -46,4 +46,14 @@ public class MeleeWeapon : BaseWeapon
 
         time_to_change_aux += Time.deltaTime;
     }
+
+    public override void Upgrade()
+    {
+        if (canUpgrade())
+        {
+            level++;
+            reach++;
+            baseDamage += level * 10;
+        }
+    }
 }

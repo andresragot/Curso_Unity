@@ -127,6 +127,15 @@ public partial class @Controls: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""LoadData"",
+                    ""type"": ""Button"",
+                    ""id"": ""4ed9b277-6079-4e9a-a7a0-745a8a747783"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -173,6 +182,17 @@ public partial class @Controls: IInputActionCollection2, IDisposable
                     ""action"": ""Pause"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""2d199e1e-0473-4067-a9e4-22925a41db7f"",
+                    ""path"": ""<Keyboard>/space"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""LoadData"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -185,6 +205,7 @@ public partial class @Controls: IInputActionCollection2, IDisposable
         m_Gameplay_TouchPosition = m_Gameplay.FindAction("TouchPosition", throwIfNotFound: true);
         m_Gameplay_Back = m_Gameplay.FindAction("Back", throwIfNotFound: true);
         m_Gameplay_Pause = m_Gameplay.FindAction("Pause", throwIfNotFound: true);
+        m_Gameplay_LoadData = m_Gameplay.FindAction("LoadData", throwIfNotFound: true);
     }
 
     ~@Controls()
@@ -269,6 +290,7 @@ public partial class @Controls: IInputActionCollection2, IDisposable
     private readonly InputAction m_Gameplay_TouchPosition;
     private readonly InputAction m_Gameplay_Back;
     private readonly InputAction m_Gameplay_Pause;
+    private readonly InputAction m_Gameplay_LoadData;
     /// <summary>
     /// Provides access to input actions defined in input action map "Gameplay".
     /// </summary>
@@ -296,6 +318,10 @@ public partial class @Controls: IInputActionCollection2, IDisposable
         /// Provides access to the underlying input action "Gameplay/Pause".
         /// </summary>
         public InputAction @Pause => m_Wrapper.m_Gameplay_Pause;
+        /// <summary>
+        /// Provides access to the underlying input action "Gameplay/LoadData".
+        /// </summary>
+        public InputAction @LoadData => m_Wrapper.m_Gameplay_LoadData;
         /// <summary>
         /// Provides access to the underlying input action map instance.
         /// </summary>
@@ -334,6 +360,9 @@ public partial class @Controls: IInputActionCollection2, IDisposable
             @Pause.started += instance.OnPause;
             @Pause.performed += instance.OnPause;
             @Pause.canceled += instance.OnPause;
+            @LoadData.started += instance.OnLoadData;
+            @LoadData.performed += instance.OnLoadData;
+            @LoadData.canceled += instance.OnLoadData;
         }
 
         /// <summary>
@@ -357,6 +386,9 @@ public partial class @Controls: IInputActionCollection2, IDisposable
             @Pause.started -= instance.OnPause;
             @Pause.performed -= instance.OnPause;
             @Pause.canceled -= instance.OnPause;
+            @LoadData.started -= instance.OnLoadData;
+            @LoadData.performed -= instance.OnLoadData;
+            @LoadData.canceled -= instance.OnLoadData;
         }
 
         /// <summary>
@@ -425,5 +457,12 @@ public partial class @Controls: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnPause(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "LoadData" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnLoadData(InputAction.CallbackContext context);
     }
 }

@@ -104,12 +104,15 @@ MonoBehaviour:
   baseDamage: 60
   fireRate: 1
   owner: {fileID: 0}
+  weaponName: Weapon Projetile
   falloffRadius: 2
   useFalloff: 0
   falloffExponent: 1
   damageableLayers:
     serializedVersion: 2
     m_Bits: 64
+  level: 1
+  maxLevel: 3
   pool: {fileID: 3448717666111389976}
   spawnPoint: {fileID: 3358028266324004535}
   projectileSpeed: 10

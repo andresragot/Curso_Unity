@@ -21,7 +21,7 @@ public static class SaveSystem
         try
         {
             if (!Directory.Exists(Dir)) Directory.CreateDirectory(Dir);
-            data.savedAtIsoUtc = DateTime.UtcNow.ToString("0");
+            data.savedAtIsoUtc = DateTime.UtcNow.ToString("O");
             var json = JsonUtility.ToJson(data, prettyPrint: true);
             File.WriteAllText(PathFor(CurrentSlot), json);
 

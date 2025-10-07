@@ -6,6 +6,7 @@ public abstract class BaseWeapon : MonoBehaviour
     public float baseDamage = 10;
     public float fireRate = 1f;
     public GameObject owner;
+    public string weaponName = "";
 
     [Header("Falloff")]
     [Tooltip("Radio del falloff")]
@@ -17,6 +18,10 @@ public abstract class BaseWeapon : MonoBehaviour
 
     [Header("Detección")]
     public LayerMask damageableLayers;
+
+    [Header("Levels")]
+    public int level = 1;
+    public int maxLevel = 3;
 
     protected float lastFireTime = -999f;
     protected float cooldown => 1f / Mathf.Max(0.00001f, fireRate);
@@ -95,6 +100,24 @@ public abstract class BaseWeapon : MonoBehaviour
         {
             Gizmos.color = new Color(1f, 0.2f, 0.2f, 0.3f);
             Gizmos.DrawWireSphere(transform.position, falloffRadius);
+        }
+    }
+
+    protected bool canUpgrade()
+    {
+        return (level + 1 <= maxLevel);
+    }
+
+    public virtual void Upgrade()
+    {
+        if (canUpgrade())
+        {
+            level++;
+            Debug.Log ("Se ha subido al nivel: " + level);
+        }
+        else
+        {
+            Debug.Log ("Ya está al maximo");
         }
     }
 }

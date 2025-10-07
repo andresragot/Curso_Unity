@@ -7,6 +7,9 @@ public class EnemyHealth : MonoBehaviour, IDamageable
     [SerializeField] private float _maxHealth = 100f;
 
     [SerializeField] private float damage = 5;
+    [SerializeField] private int xp = 10;
+
+    public LevelSystem levelSystem;
 
     private Poolable poolable;
 
@@ -52,6 +55,11 @@ public class EnemyHealth : MonoBehaviour, IDamageable
     void OnEnable()
     {
         RecoverDamage(_maxHealth);
+    }
+
+    void OnDisable()
+    {
+        levelSystem.AddXP(xp);
     }
 
     private void OnCollisionStay2D(Collision2D collision)

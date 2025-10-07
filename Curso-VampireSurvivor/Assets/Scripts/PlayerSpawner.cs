@@ -11,6 +11,8 @@ public class PlayerSpawner : MonoBehaviour
 
     const string Key = "SelectedCharIndex";
 
+    GameObject player;
+
 
     private void Awake()
     {
@@ -27,6 +29,15 @@ public class PlayerSpawner : MonoBehaviour
         }
 
         var gameCharacter = characterPrefabs[index];
-        Instantiate (gameCharacter, spawPoint ? spawPoint.position : Vector3.zero, Quaternion.identity);
+        player = Instantiate (gameCharacter, spawPoint ? spawPoint.position : Vector3.zero, Quaternion.identity);
+
+        SaveManager.Instance.player = player.transform;
+    }
+
+    private void Start()
+    {
+        WeaponManager wm = GetComponent<WeaponManager>();
+        if (wm != null) wm.weaponParent = player.transform;
+        else Debug.LogError("WeaponManager null");
     }
 }

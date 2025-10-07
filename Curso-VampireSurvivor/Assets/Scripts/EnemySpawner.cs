@@ -7,6 +7,7 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField] private Transform target;
     [SerializeField] private float spawnRate = 3f;
     [SerializeField] private float spawnRadius = 10f;
+    [SerializeField] public LevelSystem levelSystem;
 
     private float timer;
 
@@ -38,5 +39,8 @@ public class EnemySpawner : MonoBehaviour
 
         var enemy = go.GetComponent<EnemyFollower2D>();
         if (enemy != null) enemy.Init(target);
+
+        var enemyHealth = go.GetComponent<EnemyHealth>();
+        enemyHealth.levelSystem = levelSystem;
     }
 }

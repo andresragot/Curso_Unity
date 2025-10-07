@@ -35,4 +35,14 @@ public class ProjectileWeapon : BaseWeapon
             ApplyDirectDamage(damageable, go.transform.position, go.transform.right);
         }
     }
+
+    public override void Upgrade()
+    {
+        if (canUpgrade())
+        {
+            level++;
+            baseDamage += level * 5;
+            fireRate ++;
+        }
+    }
 }
