@@ -205,7 +205,7 @@ MonoBehaviour:
   _health: 100
   _maxHealth: 100
   damage: 5
-  xp: 10
+  xp: 2
   levelSystem: {fileID: 0}
 --- !u!114 &454474620658577526
 MonoBehaviour:
