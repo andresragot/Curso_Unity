@@ -8,6 +8,8 @@ public class ProjectileWeapon : BaseWeapon
     public float projectileLife = 5f;
     public bool projectileExplodesOnHit = false; // Si es true, usa el falloff
 
+    public Transform enemy;
+
     protected override void Fire()
     {
         if (spawnPoint == null)
@@ -16,7 +18,7 @@ public class ProjectileWeapon : BaseWeapon
             return;
         }
 
-        GameObject go = pool.Get(spawnPoint.position, Quaternion.identity);
+        GameObject go = pool.Get(spawnPoint.position, transform.rotation);
 
         var projectile = go.GetComponent<Projectile>();
         if (projectile == null) go.AddComponent<Projectile>();
@@ -44,5 +46,25 @@ public class ProjectileWeapon : BaseWeapon
             baseDamage += level * 5;
             fireRate ++;
         }
+    }
+
+    protected override void Update()
+    {
+        base.Update();
+        if (enemy != null)
+        {
+            Vector3 diff = enemy.position - transform.position;
+            float angle = Mathf.Atan2(diff.y, diff.x) * Mathf.Rad2Deg;
+
+            transform.rotation = Quaternion.Euler(0f, 0f, angle);
+        }
+    }
+
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        Debug.Log("Enemy detected");
+        if (enemy != null) return;
+
+        enemy = collision.transform;
     }
 }

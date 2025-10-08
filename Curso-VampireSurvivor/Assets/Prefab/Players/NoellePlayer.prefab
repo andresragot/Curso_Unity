@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 2781233722737622373}
   - component: {fileID: 2289495033336761803}
   - component: {fileID: -4526226593030465388}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: NoellePlayer
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -215,3 +215,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _health: 1000
   _maxHealth: 1000
+  lifeBar: {fileID: 0}

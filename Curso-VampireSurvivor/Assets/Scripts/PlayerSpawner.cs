@@ -31,7 +31,11 @@ public class PlayerSpawner : MonoBehaviour
         var gameCharacter = characterPrefabs[index];
         player = Instantiate (gameCharacter, spawPoint ? spawPoint.position : Vector3.zero, Quaternion.identity);
 
-        SaveManager.Instance.player = player.transform;
+        var save_instance = SaveManager.Instance;
+        if (save_instance != null)
+        {
+            save_instance.player = player.transform;
+        }
     }
 
     private void Start()

@@ -59,7 +59,7 @@ public class EnemyHealth : MonoBehaviour, IDamageable
 
     void OnDisable()
     {
-        levelSystem.AddXP(xp);
+        levelSystem?.AddXP(xp);
     }
 
     private void OnCollisionStay2D(Collision2D collision)

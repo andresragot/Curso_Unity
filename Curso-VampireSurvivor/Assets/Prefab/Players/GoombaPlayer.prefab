@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5446479849702246388}
   - component: {fileID: 8897216065485858327}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: LifeBar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -97,7 +97,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1601927146623853715}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: GameObject
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -130,7 +130,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8952879813801385420}
   - component: {fileID: 6789737166191786022}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: LifeBar (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -224,7 +224,7 @@ GameObject:
   - component: {fileID: 1749150738974936229}
   - component: {fileID: 5237660653435754740}
   - component: {fileID: 4780117175223368660}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: GoombaPlayer
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -555,6 +555,10 @@ PrefabInstance:
       value: Weapon Projetile
       objectReference: {fileID: 0}
     - target: {fileID: 3344666908263211430, guid: 96e51c899bfc2495fb0974f77a730958, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3344666908263211430, guid: 96e51c899bfc2495fb0974f77a730958, type: 3}
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
@@ -623,6 +627,10 @@ PrefabInstance:
     - target: {fileID: 2308526964940307411, guid: 295be1bbddb31445ea5c6cf16b6cb0dc, type: 3}
       propertyPath: m_Name
       value: Weapon Blade
+      objectReference: {fileID: 0}
+    - target: {fileID: 2308526964940307411, guid: 295be1bbddb31445ea5c6cf16b6cb0dc, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 2308526964940307411, guid: 295be1bbddb31445ea5c6cf16b6cb0dc, type: 3}
       propertyPath: m_IsActive

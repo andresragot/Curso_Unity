@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 6683863636429542911}
   - component: {fileID: 7965660790535167512}
   - component: {fileID: 3448717666111389976}
+  - component: {fileID: 4781883678714708022}
   m_Layer: 0
   m_Name: Weapon Projetile
   m_TagString: Untagged
@@ -80,7 +81,7 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_Sprite: {fileID: -2098595702127359983, guid: 43fac80059a044636abcc2ff3bebe187, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 0
+  m_FlipX: 1
   m_FlipY: 0
   m_DrawMode: 0
   m_Size: {x: 1.125, y: 2.25}
@@ -118,6 +119,7 @@ MonoBehaviour:
   projectileSpeed: 10
   projectileLife: 5
   projectileExplodesOnHit: 0
+  enemy: {fileID: 0}
 --- !u!114 &3448717666111389976
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -133,3 +135,39 @@ MonoBehaviour:
   prefab: {fileID: 6963800128680212652, guid: cca195e1167dc4d47b56e99e5401c372, type: 3}
   initialSize: 16
   canExpand: 1
+--- !u!58 &4781883678714708022
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3344666908263211430}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 64
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 136
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0, y: 0}
+  m_Radius: 8
